@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; padding: 40px; background: #0a0a0a; font-family: 'Segoe UI', system-ui, sans-serif; }
+  .diagram {
+    max-width: 1000px; margin: 0 auto; padding: 40px;
+    background: linear-gradient(135deg, #111 0%, #1a1a2e 100%);
+    border: 1px solid #333; border-radius: 16px;
+  }
+  h1 { color: #fff; text-align: center; font-size: 28px; margin-bottom: 8px; }
+  .sub { color: #888; text-align: center; font-size: 14px; margin-bottom: 40px; }
+  .pipeline { display: flex; gap: 12px; align-items: stretch; justify-content: center; flex-wrap: wrap; }
+  .stage {
+    flex: 1; min-width: 150px; max-width: 170px; padding: 20px 14px;
+    background: #1a1a2e; border: 1px solid #333; border-radius: 12px;
+    text-align: center; position: relative;
+  }
+  .stage .num { color: #666; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+  .stage .icon { font-size: 32px; margin: 10px 0; }
+  .stage .name { color: #fff; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .stage .model { color: #4ecdc4; font-size: 11px; font-family: monospace; }
+  .stage .detail { color: #888; font-size: 11px; margin-top: 6px; }
+  .arrow { display: flex; align-items: center; color: #4ecdc4; font-size: 24px; font-weight: bold; }
+  .tech-row { display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+  .tech {
+    background: #111; border: 1px solid #292929; border-radius: 8px;
+    padding: 12px 20px; text-align: center;
+  }
+  .tech .label { color: #666; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .tech .val { color: #fff; font-size: 13px; margin-top: 4px; }
+  .input-box {
+    text-align: center; margin-bottom: 24px;
+    padding: 16px; background: #0d0d1a; border: 1px dashed #4ecdc4; border-radius: 10px;
+  }
+  .input-box .label { color: #4ecdc4; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+  .input-box .val { color: #fff; font-size: 16px; margin-top: 6px; }
+  .output-box {
+    text-align: center; margin-top: 24px;
+    padding: 16px; background: #0d1a0d; border: 1px dashed #4ecdc4; border-radius: 10px;
+  }
+  .output-box .label { color: #4ecdc4; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+  .output-box .val { color: #fff; font-size: 14px; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="diagram">
+  <h1>🎬 MUSE — Architecture</h1>
+  <div class="sub">AI Creative Director · 5-Stage Gemini Pipeline</div>
+
+  <div class="input-box">
+    <div class="label">Input</div>
+    <div class="val">Creative Brief (text) → "A cyberpunk short about stolen memories..."</div>
+  </div>
+
+  <div class="pipeline">
+    <div class="stage">
+      <div class="num">Stage 1</div>
+      <div class="icon">📝</div>
+      <div class="name">Script</div>
+      <div class="model">gemini-2.5-flash</div>
+      <div class="detail">Structured JSON screenplay</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="num">Stage 2</div>
+      <div class="icon">🎨</div>
+      <div class="name">Style Bible</div>
+      <div class="model">gemini-2.5-flash</div>
+      <div class="detail">Colors · Lighting · Global Lock</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="num">Stage 3</div>
+      <div class="icon">🖼️</div>
+      <div class="name">Storyboard</div>
+      <div class="model">gemini-2.5-flash</div>
+      <div class="detail">Frame-by-frame breakdown</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="num">Stage 4</div>
+      <div class="icon">🔍</div>
+      <div class="name">Review</div>
+      <div class="model">gemini-2.5-flash</div>
+      <div class="detail">Critique-correct-verify</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="num">Stage 5</div>
+      <div class="icon">🖌️</div>
+      <div class="name">Images</div>
+      <div class="model">gemini-3.1-flash-image</div>
+      <div class="detail">Storyboard frames</div>
+    </div>
+  </div>
+
+  <div class="output-box">
+    <div class="label">Output</div>
+    <div class="val">Complete Production Package — Script + Style Bible + Storyboard + Frames + Review</div>
+  </div>
+
+  <div class="tech-row">
+    <div class="tech">
+      <div class="label">Frontend</div>
+      <div class="val">Next.js 15 + TypeScript</div>
+    </div>
+    <div class="tech">
+      <div class="label">Streaming</div>
+      <div class="val">Server-Sent Events (SSE)</div>
+    </div>
+    <div class="tech">
+      <div class="label">SDK</div>
+      <div class="val">@google/genai</div>
+    </div>
+    <div class="tech">
+      <div class="label">Deploy</div>
+      <div class="val">Vercel + GCP</div>
+    </div>
+    <div class="tech">
+      <div class="label">Data Contract</div>
+      <div class="val">Structured JSON (response_mime_type)</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

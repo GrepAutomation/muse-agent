@@ -117,6 +117,8 @@ function MusePageInner() {
       console.error(e);
     } finally {
       setRunning(false);
+      // Ensure download buttons show even if stream closed without "complete" event
+      setPipelineComplete(true);
     }
   }, [brief, genre, tone, duration, running]);
 
